@@ -28,8 +28,19 @@
 
 # 2. Initial Solution
 
+def total(array)
+	sum = 0
+	i = 0
+	while array[i] 
+		sum += array[i]
+		i += 1
+	end
+	return sum
+end
 
-
+def sentence_maker(array)
+	return array.join(" ").capitalize + "."
+end
 
 # 3. Refactored Solution
 
