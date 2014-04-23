@@ -28,8 +28,37 @@
 
 # 2. Initial Solution
 
+def mode(array)
+	initialCount = 1
+	arrayMode = []
+	i = 0
+	while array[i] 
+		puts "array element: #{array[i]}"
+	  count = array.count {|j| j == array[i]}
+	  puts "this element occurs #{count} times"
+	  if count > initialCount
+	  	initialCount = count
+	  	puts "this element is the new mode"
+	  	arrayMode = [array[i]]
+	  elsif count == initialCount && count != 1
+	  	puts "this element is also a mode and will be added to the mode"
+	  	arrayMode.push(array[i])
+	  end
+	  i += 1
+	end
+	arrayMode = arrayMode.uniq
+	return arrayMode
 
+end
 
+array = [1, 2, 3, 4, 5, 5, 7]
+puts mode(array)
+puts "------------------Next Array------------------------"
+array = [4, 4, 5, 5, 6, 6, 6, 7, 5]
+puts mode(array)
+puts "------------------Next Array------------------------"
+array = ["apple", "banana", "clementine", "banana", "cherry", "strawberry", "cherry"]
+puts mode(array)
 # 3. Refactored Solution
 
 
