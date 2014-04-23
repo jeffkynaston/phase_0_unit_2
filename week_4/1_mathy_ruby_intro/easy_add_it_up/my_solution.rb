@@ -44,6 +44,40 @@ end
 
 # 3. Refactored Solution
 
+def total(array)
+	array.inject(0) { |sum, element| sum + element}
+end
+
+# or 
+
+def total(array)
+	array.reduce(:+)
+end
+
+def sentence_maker(array)
+	return array.join(" ").capitalize + "."
+end	
+
 
 
 # 4. Reflection 
+# This was my first time digging into enumerables and as it turns out they
+# are pretty sweet. For the total method, my initial thought was to use a 
+# while loop to iterate through the array. This could definitely be becuase
+# we just looked at JavaScript last week and it's limited to for and while
+# loops. My solution worked great, but it was a lot more code than my 
+# refactored solutions that use enumerable methods. I spent a while reading
+# up on them, and found some good resources including this:
+# http://www.sitepoint.com/guide-ruby-collections-iii-enumerable-enumerator/
+# Using the enumerable methods inject/reduce (which work the same way),
+# you can 'reduce' an array of numbers down to one. With the shorthand 
+# notation, I was able to get the entire method completed in just 1 line. 
+
+# My initial sentence_maker method worked great and required no refactoring. 
+# I was already aware of the built-in join method, and it worked for 
+# combining the array. 
+
+# A couple other resources I found for enumerables:
+# http://www.slideshare.net/harisamin/the-enumerable-module-or-how-i-fell-in-love-with-ruby
+# http://jamesgolick.com/2008/1/5/an-introduction-to-ruby-s-enumerable-module.html
+# http://rubymonk.com/learning/books/4-ruby-primer-ascent/chapters/44-collections/lessons/96-enumerators-and-enumerables
