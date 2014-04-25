@@ -1,6 +1,6 @@
 # U2.W4: Research Methods
 
-i_want_pets = ["I", "want", 3, "pets", "but", "I", "only", "have", 2]
+i_want_pets = ["I", "want", 4, "pets", "but", "I", "only", "have", 3]
 my_family_pets_ages = {"Evi" => 6, "Hoobie" => 3, "George" => 12, "Bogart" => 4, "Poly" => 4, 
             "Annabelle" => 0, "Ditto" => 3}
 
@@ -35,8 +35,9 @@ end
 
 # Person 3
 def my_array_sorting_method(source)
-  # Your code here!
-end
+  sortedArray = source.sort_by { |a| a.to_s }
+  return sortedArray.uniq!
+ end
 
 def my_hash_sorting_method(source)
   # Your code here!
@@ -66,6 +67,9 @@ end
 ################## DRIVER CODE ###################################
 # HINT: Use `puts` statements to see if you are altering the original structure with these methods. 
 # Each of these should return `true` if they are implemented properly.
+
+puts my_array_sorting_method(i_want_pets)
+puts ["3", "4", "I", "but", "have", "only", "pets", "want"]
 
 p my_array_finding_method(i_want_pets, "t") == ["want","pets","but"]
 p my_hash_finding_method(my_family_pets_ages, 3) == ["Hoobie", "Ditto"]
