@@ -116,4 +116,12 @@ p my_hash_deletion_method(my_family_pets_ages, "George") == {"Evi" => 8, "Hoobie
 #
 # http://www.slideshare.net/harisamin/the-enumerable-module-or-how-i-fell-in-love-with-ruby
 # http://jamesgolick.com/2008/1/5/an-introduction-to-ruby-s-enumerable-module.html
-# http://rubymonk.com/learning/books/4-ruby-primer-ascent/chapters/44-collections/lessons/96-enumerators-and-enumerables
+# http://rubymonk.com/learning/books/4-ruby-primer-ascent/chapters/44-collections/lessons/96-enumerators-and-enumerable
+# 
+# What did you learn about researching and explaining your research to others?
+# Explaining my solutions to other people helps to solidify them to me. The sort_by function is a great
+# example. When I started the challenge, all I knew about it was that you could pass a block
+# of code through it to manipulate the array/hash you were sorting. In order to explain it 
+# to my accountability group, I needed to undersatnd how it actually works, and I found that 
+# the algorithm behind this process can actually produce a much more efficient sorting algorithm
+# than the standard sort function. 
