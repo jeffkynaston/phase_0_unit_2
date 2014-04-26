@@ -26,7 +26,25 @@
 # 6) return the array
 
 # 2. Initial Solution
+class Array
 
+	def pad(min_length, pad_value = nil)
+		if self.length >= min_length
+			return self
+		else
+			new_array = self
+			(min_length-self.length).times do
+				new_array.push(pad_value)
+			end
+			return new_array
+		end
+	end
+end
+
+
+# arr = [1,2,3,4,5]
+
+# puts arr.pad(9,"x")
 
 # 3. Refactored Solution
 
