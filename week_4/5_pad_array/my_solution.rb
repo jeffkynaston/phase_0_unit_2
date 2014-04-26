@@ -91,3 +91,27 @@ end
 
 
 # 4. Reflection 
+
+# I enjoyed this challenge - it gave me some insight as to how 
+# ruby is working 'under the hood' when assigning variables. In my first
+# attempt at the non-destructive function, I declared a variable 
+# new_array and set it equal to self. The function worked properly, but
+# my method was destructive and wouldn't pass the final test. I threw some 
+# puts statements on to check the array at different times, and sure 
+# enough my original array was changing even though I was pushing values
+# to the variable new_array. 
+
+
+# I was able to solve this problem by using the map function
+# to actually create a new array. I passed the map function a simple block
+# that didn't alter the array, but I can see the power of the map function
+# when it comes to manipulating arrays. I'm now thinking that you might be 
+# able to solve the insert_comma challenge by changing the number to an array
+# and inserting commas using the map function. 
+
+# For my refactored solution, I cleaned up my variable names and made 
+# the methods more readable. I also used the shorthand notation on the
+# lines where I pushed pad_values - the code was short enough I felt it
+# looked on just one line. My solution didn't quite follow my pseudocode 
+# becuase I didn't anticipate needing to use the map function.
+ 
