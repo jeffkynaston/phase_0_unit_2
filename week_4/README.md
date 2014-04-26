@@ -12,7 +12,7 @@ This week you get a bit more choice on which challenges to do. If you want to go
 
 ## Challenges
 1. [Mathy Challenges](1_mathy_ruby_intro) **Select 2 of the challenges**
-2. [Homework Cheater](2_creative) **Select 1 of the challenges**
+2. [Creative Challenges](2_creative) **Select 1 of the challenges**
 3. [Group Research Methods](3_group_research_methods)
 4. [Separate Numbers with Commas SOLO CHALLENGE](4_nums_commas_solo_challenge)
 5. [Pad an Array](5_pad_array)
@@ -23,6 +23,8 @@ This week you get a bit more choice on which challenges to do. If you want to go
 
 
 ## Submitting your work
+
+**You need to submit your work through on [apply.devbootcamp.com](http://apply.devbootcamp.com) by Sunday at 11:59pm. When you log in, look at your profile page. There should be a "Unit 2 Week 4 Submission" form.** 
 
 This week you will be storing your reflections in the challenge files in this repository. 
 - Fork this (phase_0_unit_2) repository by clicking "Fork" at the top right of the page. 
@@ -42,7 +44,6 @@ You will want to run and modify all files from your local repository on your com
 
 When you make updates to the files (or add a file), you should commit your work the same way you did for your website through the app. Include a commit message that describes what you've changed.
 
-You need to submit your work through a form (to be released) by Sunday at 11:59pm. Expect to submit the links from your repo for each challenge above. 
 
 ## Remember your Unit Goals!
 - Pair at least once this week with a member of your accountability group.  *You need to pair **4** times this unit*
