@@ -22,29 +22,46 @@
 #    if no paramter is specificed
 # 3) Use an if statement to check if the length of the array is >= than min_length
 # 4) If yes,  return the original array
-# 5) else, push (min_length - self.length) pad_values to the array
-# 6) return the array
+# 5) else, declare a new variable new_array and set it equal to self
+# 6) push (min_length - self.length) pad_values to new_array
+# 6) return new_array
+
+# 7) to make this a destructive method, we can remove step 5 and push the pad values to self
 
 # 2. Initial Solution
 class Array
 
 	def pad(min_length, pad_value = nil)
+		new_array = self.map { |x| x }
 		if self.length >= min_length
-			return self
+			return new_array
 		else
-			new_array = self
+			puts new_array
 			(min_length-self.length).times do
 				new_array.push(pad_value)
 			end
+			puts "original array: #{self}"
+			puts "new array: #{new_array}"
 			return new_array
+		end
+	end
+
+	def pad!(min_length, pad_value = nil)
+		if self.length >= min_length
+			return self
+		else
+			(min_length-self.length).times do
+				self.push(pad_value)
+			end
+			return self
 		end
 	end
 end
 
 
-# arr = [1,2,3,4,5]
+arr = [1,2,3,4,5]
 
-# puts arr.pad(9,"x")
+arr.pad(9,"x")
 
 # 3. Refactored Solution
 
