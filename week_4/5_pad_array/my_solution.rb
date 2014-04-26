@@ -65,6 +65,29 @@ arr.pad(9,"x")
 
 # 3. Refactored Solution
 
+class Array
+
+	def pad(min_length, pad_value = nil)
+		array = self.map { |x| x }
+		length = array.length
+		if length >= min_length
+			return array
+		else
+			(min_length-length).times { array.push(pad_value) }
+			return array
+		end
+	end
+
+	def pad!(min_length, pad_value = nil)
+		length = self.length
+		if length >= min_length
+			return self
+		else
+			(min_length-length).times {	self.push(pad_value) }
+			return self
+		end
+	end
+end
 
 
 # 4. Reflection 
