@@ -1,39 +1,40 @@
 # U2.W4: Research Methods
 
 i_want_pets = ["I", "want", 4, "pets", "but", "I", "only", "have", 3]
-my_family_pets_ages = {"Evi" => 6, "Hoobie" => 3, "George" => 12, "Bogart" => 4, "Poly" => 4, 
-            "Annabelle" => 0, "Ditto" => 3}
+my_family_pets_ages = {"Evi" => 8, "Hoobie" => 5, "George" => 14, "Bogart" => 6, "Poly" => 6, 
+            "Annabelle" => 2, "Ditto" => 5}
 
-# Person 1's solution
+# Person 1's solution (Andrew Koines)
 def my_array_finding_method(source, thing_to_find)
-  # Your code here!
+  source.map{ |i| i.to_s }.select{|i| i.include? (thing_to_find)}
 end
 
 def my_hash_finding_method(source, thing_to_find)
-  # Your code here!
+  source.select{|k,v| v==thing_to_find}.keys
 end
 
-# Identify and describe the ruby method you implemented. 
-# 
-#
-#
-
-# Person 2
+# Person 2 (Amelia Downs)
 def my_array_modification_method(source, thing_to_modify)
-  # Your code here!
+  len = source.length; # find the number of elements in the array
+  # for each element in the array see if it is a string
+  0.upto(len - 1) do |loc|
+    # if the element is NOT a string, add thing_to_modify to it
+    if source[loc].is_a?(String) === false
+      source[loc] += thing_to_modify
+    end
+  end
+  return source
 end
 
+  
 def my_hash_modification_method(source, thing_to_modify)
-  # Your code here!
+
+  source.each {|name, age| source[name] += thing_to_modify}
+
+  return source 
 end
 
-# Identify and describe the ruby method you implemented. 
-# 
-#
-#
-
-
-# Person 3
+# Person 3 (Jeff Kynaston)
 def my_array_sorting_method(source)
   sortedArray = source.sort_by { |a| a.to_s }
   return sortedArray.uniq!
@@ -44,19 +45,20 @@ def my_hash_sorting_method(source)
   return sortedHash
 end
 
-# Identify and describe the ruby method you implemented. 
-# 
-#
-#
 
 
-# Person 4
+# Person 4 (Phillip Crawford, Jeuel Wilkerson)
+
+
 def my_array_deletion_method(source, thing_to_delete)
-  #Your code here!
+
+source = source.delete_if {|element| element.class == String && element.include?(thing_to_delete)
+}
 end
 
+
 def my_hash_deletion_method(source, thing_to_delete)
-  #Your code here!
+source.delete_if {|x, y| x == thing_to_delete }
 end
 
 # Identify and describe the ruby method you implemented. 
@@ -69,9 +71,9 @@ end
 # HINT: Use `puts` statements to see if you are altering the original structure with these methods. 
 # Each of these should return `true` if they are implemented properly.
 
-puts my_array_sorting_method(i_want_pets)
-puts ["3", "4", "I", "but", "have", "only", "pets", "want"]
-puts my_hash_sorting_method(my_family_pets_ages)
+# puts my_array_sorting_method(i_want_pets)
+# puts ["3", "4", "I", "but", "have", "only", "pets", "want"]
+# puts my_hash_sorting_method(my_family_pets_ages)
 
 
 p my_array_finding_method(i_want_pets, "t") == ["want","pets","but"]
