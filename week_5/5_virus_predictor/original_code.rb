@@ -3,12 +3,22 @@
 # I worked on this challenge [by myself, with: ].
 
 # EXPLANATION OF require_relative
-#
+# require_relative loads another file into the current ruby file. 
+# In comparison with the normal require statement, require_relative will
+# look for the specific file in a directory relative to the current 
+# directory. 
+
+# ANALYZE state data
+# I think that state data is using a hash witin a hash. In the first hash, the state
+# name is the key, and the second hash is the value. In the scond hash, the metric
+# names are the keys, and the metric values are the values. 
+
 #
 require_relative 'state_data'
 
 class VirusPredictor
 
+# Initliazes an instance of the virus predictor class and defines instance variables
   def initialize(state_of_origin, population_density, population, region, regional_spread)
     @state = state_of_origin
     @population = population
@@ -17,14 +27,16 @@ class VirusPredictor
     @next_region = regional_spread
   end
 
+# Calls predicted deaths method and spread of deaths method to generate output for the user
   def virus_effects  #HINT: What is the SCOPE of instance variables?
-    predicted_deaths(@population_density, @population, @state)
-    speed_of_spread(@population_density, @state)
+    predicted_deaths
+    speed_of_spread
   end
 
   private  #what is this?  what happens if it were cut and pasted above the virus_effects method
 
-  def predicted_deaths(population_density, population, state)
+# Checks population density and returns a statement regarding the predicted number of deaths
+  def predicted_deaths
     if @population_density >= 200
       number_of_deaths = (@population * 0.4).floor
     elsif @population_density >= 150
@@ -41,7 +53,8 @@ class VirusPredictor
 
   end
 
-  def speed_of_spread(population_density, state) #in months
+# Checks population density and returns a statement regarding he predicted speed of spread
+  def speed_of_spread #in months
     speed = 0.0
 
     if @population_density >= 200
@@ -54,6 +67,87 @@ class VirusPredictor
       speed += 2
     else 
       speed += 2.5
+    end
+
+    puts " and will spread across the state in #{speed} months.\n\n"
+
+  end
+
+end
+
+#======================================================================
+
+# Create a Report for all 50 states
+
+STATE_DATA.each_key do |key| 
+  VirusPredictor.new(key, STATE_DATA[key][:population_density], STATE_DATA[key][:population], STATE_DATA[key][:region], STATE_DATA[key][:regional_spread]).virus_effects
+end
+
+
+#=======================================================================
+
+# REFACTOR 
+# Instance variables are available to any method within a class, so passing them through as
+# arguments to the method is redundant. You can access them even without these parameters. 
+
+# PRIVATE METHODS
+# Private methods are available only to other methods within the object. You cannot 
+# explicitly call a private method on an instance of an object. If you were to put 
+# the private method call above virus effects, the code would not run - you would not be
+# able to call it. 
+
+class VirusPredictor
+
+# Initliazes an instance of the virus predictor class and defines instance variables
+  def initialize(state_of_origin, population_density, population, region, regional_spread)
+    @state = state_of_origin
+    @population = population
+    @population_density = population_density
+    @region = region
+    @next_region = regional_spread
+  end
+
+# Calls predicted deaths method and spread of deaths method to generate output for the user
+  def virus_effects  #HINT: What is the SCOPE of instance variables?
+    predicted_deaths
+    speed_of_spread
+  end
+
+  private  #what is this?  what happens if it were cut and pasted above the virus_effects method
+
+# Checks population density and returns a statement regarding the predicted number of deaths
+  def predicted_deaths
+    number_of_deaths = (@population * case @population_density
+    when (200..1000)
+      0.4
+    when (150...200)
+      0.3
+    when (100...150)
+      0.2
+    when (50...100)
+      0.1
+    else 
+      0.05
+    end).floor
+
+    print "#{@state} will lose #{number_of_deaths} people in this outbreak"
+
+  end
+
+# Checks population density and returns a statement regarding he predicted speed of spread
+  def speed_of_spread #in months
+    
+    speed = case @population_density
+    when (200..1000)
+      0.5
+    when (150...200)
+      1
+    when (100...150)
+      1.5
+    when (50...100)
+      2
+    else 
+      2.5
     end
 
     puts " and will spread across the state in #{speed} months.\n\n"
