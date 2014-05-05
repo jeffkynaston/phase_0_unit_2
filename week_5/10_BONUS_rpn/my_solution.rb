@@ -123,12 +123,13 @@ class RPNCalculator
 
   def evaluate(problem)
   	@calc = problem
-  	puts "array: #{@calc}"
+  	# puts "array: #{@calc}" # => Un-comment if you would like to see the array at each stage
   	if @calc.include?("-") || @calc.include?("+") || @calc.include?("*")
   		@calc = @calc.split(" ") if @calc.is_a?(String)
   		combine(@calc)
   		evaluate(@calc)
   	else
+  		return @calc.to_i if @calc.is_a?(String)
   		return @calc.map { |obj| obj.to_i }.reduce(:+)
   	end
   end
@@ -138,7 +139,7 @@ class RPNCalculator
   	array.each_with_index do | obj, i |	
 	  		case obj
 	  		when "-"
-	  			operation = array[i-1].to_i-array[i-2].to_i
+	  			operation = array[i-2].to_i-array[i-1].to_i
 	  			array[i-2] = operation
 	  			2.times { array.delete_at(i-1) }
 	  			break
@@ -164,10 +165,37 @@ end
 # 1. DRIVER TESTS GO BELOW THIS LINE
 
 calc = RPNCalculator.new
+puts calc.evaluate('0')
 puts calc.evaluate('1 2 +')
 puts calc.evaluate('70 10 4 + 5 * -') # => 0
+puts calc.evaluate('20 10 5 4 + * -') # => -70
 
-
+puts calc.evaluate('0') == 0
+puts calc.evaluate('1 2 +') == 3
+puts calc.evaluate('70 10 4 + 5 * -') == 0
+puts calc.evaluate('20 10 5 4 + * -') == -70
 
 
 # 5. Reflection 
+
+# This challenge seemed much more simple than it ended up being. I understood the 
+# algorithm that needed to be run, but I ran into some probelms implementing it. The biggest
+# issue occured when I deleted array elements. That deletion shifted the index of the array
+# and threw off my each loop, causing the method to calculate incorrectly. I considered
+# replacing array elements with 0s instead of deleting them, but ran into problems with that
+# solution too. In the end, I decided to break the loop each time an operation was completed,
+# and then re-start the loop with the updated equation.
+
+# My first solution was pretty ugly - I had been working on it for a while so when I finally 
+# figured out how to make it work, I threw a few if statements in and just copied my code 
+# three times. It was a perfectly fine, working solution, but it needed some refactoring and
+# recursion was a perfect fit for it. I created a second instance method called combine that
+# would loop through an array until it found its first operation, perform that operation, 
+# replace the element in the array, and break. 
+
+# With that complexity factored out, the evaluate is now much more simple. It first checks to
+# see if there are any operating signs left in the equation. If so, it passes the equation to
+# the combine method and then calls itself using the new, updated equation. It repeats this
+# process until there are no more operating signs in the equation, at which point it adds all 
+# of the integers in the equation and returns the result. oop and recursion! Suprised myself by
+# coming up with all of that on my own. 
