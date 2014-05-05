@@ -1,6 +1,6 @@
 # U2.W5: Virus Predictor
 
-# I worked on this challenge [by myself, with: ].
+# I worked on this challenge [by myself].
 
 # EXPLANATION OF require_relative
 # require_relative loads another file into the current ruby file. 
