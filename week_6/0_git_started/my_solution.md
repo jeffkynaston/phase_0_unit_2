@@ -52,16 +52,21 @@ to merge the changes from [branch] into the current branch.
 and automatically merges them with the local repository.
 
 #### push
-<!-- Your defnition here -->
+`git push` pushes changes from a local repository up to a remote repository. 
+`git push origin master` pushes changes up to the remote repository and merges
+them with the master branch. 
 
 #### reset
-<!-- Your defnition here -->
+`git reset [file]` will remove a file from the staging area.
+Use `get reset .` to remote all files from the staging area.
 
 #### rm
-<!-- Your defnition here -->
+`git rm [file]` will remove [file from the repository]
 
 #### status
-
+`git status` shows a log of all files that have been changed, added, or removed from staging. 
+It will also provide information on the current branch and its status compared to
+the master branch.
 
 ## Release 4: Git Workflow
 
@@ -69,4 +74,8 @@ and automatically merges them with the local repository.
 - Fetch changes
 - Commit locally
 
+<img src="http://jeffkynaston.github.io/images/Week-6-git-workflow.png">
+
 ## Release 5: Reflection
+
+I have been using git and the command line for all of phase 0 so I am pretty comfortable with it. I also had a fair amount of experience from doing the one month rails and jumpstart sintatra tutorials before phase 0. Fixing merge conflicts is one thing I don't have a lot of experience with, but I am sure that after I have to do it a couple times I will feel comfortable. 
