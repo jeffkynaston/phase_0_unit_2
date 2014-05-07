@@ -75,6 +75,7 @@ the master branch.
 - Commit locally
 
 <img src="http://jeffkynaston.github.io/images/Week-6-git-workflow.png">
+<img src="http://jeffkynaston.github.io/images/git-commands.pdf">
 
 ## Release 5: Reflection
 
