@@ -81,3 +81,5 @@ the master branch.
 ## Release 5: Reflection
 
 I have been using git and the command line for all of phase 0 so I am pretty comfortable with it. I also had a fair amount of experience from doing the one month rails and jumpstart sintatra tutorials before phase 0. Fixing merge conflicts is one thing I don't have a lot of experience with, but I am sure that after I have to do it a couple times I will feel comfortable. 
+
+I had previously created a cheat-sheet of git commands, so I PDF'd it and threw it up on here too in case anyone reviewing this challenge wanted to copy it. There's a download link under the image. 
